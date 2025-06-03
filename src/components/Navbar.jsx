@@ -1,38 +1,70 @@
-import { AppBar, Toolbar, Button, Box, useScrollTrigger, Slide } from '@mui/material';
+import { AppBar, Toolbar, Button, Box, Container } from '@mui/material';
 import { Link } from 'react-scroll';
-
-function HideOnScroll(props) {
-  const { children } = props;
-  const trigger = useScrollTrigger();
-
-  return (
-    <Slide appear={false} direction="down" in={!trigger}>
-      {children}
-    </Slide>
-  );
-}
+import { useState, useEffect } from 'react';
 
 const Navbar = () => {
-  const navItems = ['Home', 'About', 'Skills', 'Projects', 'Contact'];
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 50;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [scrolled]);
 
   return (
-    <HideOnScroll>
-      <AppBar position="fixed" sx={{ backgroundColor: 'rgba(10, 25, 47, 0.85)', backdropFilter: 'blur(10px)' }}>
-        <Toolbar>
-          <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center', gap: 2 }}>
-            {navItems.map((item) => (
+    <AppBar 
+      position="fixed" 
+      className={`glass-effect ${scrolled ? 'neon-border' : ''}`}
+      sx={{
+        backgroundColor: 'transparent',
+        boxShadow: 'none',
+        transition: 'all 0.4s ease',
+      }}
+    >
+      <Container maxWidth="lg">
+        <Toolbar sx={{ justifyContent: 'space-between', py: 1 }}>
+          <Box
+            component={Link}
+            to="home"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+            className="cyber-text"
+            sx={{
+              cursor: 'pointer',
+              fontSize: '1.5rem',
+              fontWeight: 700,
+              letterSpacing: '0.05em',
+            }}
+          >
+            RISHI
+          </Box>
+          <Box sx={{ display: 'flex', gap: 2 }}>
+            {['about', 'skills', 'projects', 'contact'].map((item) => (
               <Button
                 key={item}
                 component={Link}
-                to={item.toLowerCase()}
+                to={item}
                 spy={true}
                 smooth={true}
                 offset={-70}
                 duration={500}
+                className="text-neon-blue"
                 sx={{
-                  color: 'primary.main',
+                  textTransform: 'uppercase',
+                  fontSize: '0.9rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.05em',
                   '&:hover': {
-                    backgroundColor: 'rgba(100, 255, 218, 0.1)',
+                    color: 'neon.pink',
+                    textShadow: '0 0 10px rgba(255, 16, 240, 0.5)',
                   },
                 }}
               >
@@ -41,8 +73,8 @@ const Navbar = () => {
             ))}
           </Box>
         </Toolbar>
-      </AppBar>
-    </HideOnScroll>
+      </Container>
+    </AppBar>
   );
 };
 
