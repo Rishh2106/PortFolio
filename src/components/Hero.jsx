@@ -14,6 +14,18 @@ const Hero = () => {
         overflow: 'hidden',
         display: 'flex',
         alignItems: 'center',
+        background: 'linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%)',
+        pt: { xs: 8, md: 10 },
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'radial-gradient(circle at 50% 50%, rgba(255, 42, 109, 0.1) 0%, transparent 50%)',
+          zIndex: 1,
+        },
       }}
     >
       {/* Animated background elements */}
@@ -26,6 +38,9 @@ const Hero = () => {
           right: 0,
           bottom: 0,
           zIndex: 0,
+          opacity: 0.3,
+          background: 'linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)',
+          backgroundSize: '50px 50px',
         }}
       />
       
@@ -46,7 +61,7 @@ const Hero = () => {
           left: '10%',
           width: '150px',
           height: '150px',
-          border: '2px solid rgba(255, 42, 109, 0.3)',
+          border: '2px solid rgba(255, 42, 109, 0.15)',
           transform: 'rotate(45deg)',
           zIndex: 1,
         }}
@@ -67,16 +82,34 @@ const Hero = () => {
           right: '10%',
           width: '100px',
           height: '100px',
-          border: '2px solid rgba(5, 217, 232, 0.3)',
+          border: '2px solid rgba(5, 217, 232, 0.15)',
           transform: 'rotate(45deg)',
           zIndex: 1,
         }}
       />
 
       <Container maxWidth="xl" sx={{ position: 'relative', zIndex: 2 }}>
-        <Grid container spacing={4} alignItems="center">
+        <Grid 
+          container 
+          spacing={{ xs: 2, md: 4 }} 
+          alignItems="center"
+          sx={{
+            minHeight: { xs: 'calc(100vh - 80px)', md: 'calc(100vh - 100px)' },
+            display: 'flex',
+            flexDirection: { xs: 'column', md: 'row' },
+          }}
+        >
           {/* Left side - Main content */}
-          <Grid item xs={12} md={7}>
+          <Grid 
+            item 
+            xs={12} 
+            md={7}
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+            }}
+          >
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
@@ -88,6 +121,7 @@ const Hero = () => {
                   mb: 4,
                   p: 3,
                   position: 'relative',
+                  display: 'inline-block',
                   '&::before': {
                     content: '""',
                     position: 'absolute',
@@ -97,6 +131,7 @@ const Hero = () => {
                     height: '100%',
                     background: 'linear-gradient(45deg, rgba(255, 42, 109, 0.1), rgba(176, 38, 255, 0.1))',
                     zIndex: -1,
+                    borderRadius: '4px',
                   },
                 }}
               >
@@ -122,12 +157,13 @@ const Hero = () => {
                   textTransform: 'uppercase',
                   letterSpacing: '0.05em',
                   position: 'relative',
+                  display: 'inline-block',
                   '&::after': {
                     content: '""',
                     position: 'absolute',
                     bottom: -10,
                     left: 0,
-                    width: '100px',
+                    width: '100%',
                     height: '4px',
                     background: 'linear-gradient(90deg, #FF2A6D, #B026FF)',
                   },
@@ -136,31 +172,41 @@ const Hero = () => {
                 Rishi.
               </Typography>
 
-              <Typography
-                variant="h2"
-                className="gradient-text"
+              <Box
                 sx={{
                   mb: 4,
-                  fontSize: { xs: '2.5rem', md: '3.5rem' },
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.05em',
+                  position: 'relative',
+                  display: 'inline-block',
+                  width: '100%',
                 }}
               >
-                <Typewriter
-                  options={{
-                    strings: [
-                      'I build things for the web.',
-                      'I create modern web applications.',
-                      'I develop full-stack solutions.',
-                      'I craft digital experiences.',
-                    ],
-                    autoStart: true,
-                    loop: true,
-                    deleteSpeed: 50,
-                    delay: 50,
+                <Typography
+                  variant="h2"
+                  className="gradient-text"
+                  sx={{
+                    fontSize: { xs: '2.5rem', md: '3.5rem' },
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.05em',
+                    whiteSpace: 'nowrap',
+                    overflow: 'hidden',
                   }}
-                />
-              </Typography>
+                >
+                  <Typewriter
+                    options={{
+                      strings: [
+                        'I build things for the web.',
+                        'I create modern web applications.',
+                        'I develop full-stack solutions.',
+                        'I craft digital experiences.',
+                      ],
+                      autoStart: true,
+                      loop: true,
+                      deleteSpeed: 50,
+                      delay: 50,
+                    }}
+                  />
+                </Typography>
+              </Box>
 
               <Typography
                 variant="body1"
@@ -178,7 +224,7 @@ const Hero = () => {
                 modern technologies like React, Spring Boot, and more.
               </Typography>
 
-              <Box sx={{ display: 'flex', gap: 3, mb: 4 }}>
+              <Box sx={{ display: 'flex', gap: 3, mb: 4, flexWrap: { xs: 'wrap', md: 'nowrap' } }}>
                 <Button
                   variant="contained"
                   className="btn-cyber"
@@ -194,6 +240,10 @@ const Hero = () => {
                     fontWeight: 600,
                     letterSpacing: '0.05em',
                     minWidth: '180px',
+                    background: 'linear-gradient(45deg, #FF2A6D, #B026FF)',
+                    '&:hover': {
+                      background: 'linear-gradient(45deg, #B026FF, #FF2A6D)',
+                    },
                   }}
                 >
                   View My Work
@@ -214,6 +264,11 @@ const Hero = () => {
                     letterSpacing: '0.05em',
                     color: 'text.primary',
                     minWidth: '180px',
+                    borderColor: 'rgba(255, 42, 109, 0.5)',
+                    '&:hover': {
+                      borderColor: '#FF2A6D',
+                      background: 'rgba(255, 42, 109, 0.1)',
+                    },
                   }}
                 >
                   Contact Me
@@ -223,27 +278,50 @@ const Hero = () => {
           </Grid>
 
           {/* Right side - Decorative elements */}
-          <Grid item xs={12} md={5}>
+          <Grid 
+            item 
+            xs={12} 
+            md={5}
+            sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              height: { xs: '300px', md: 'auto' },
+              mt: { xs: 2, md: 0 },
+              position: 'relative',
+              overflow: 'hidden',
+            }}
+          >
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                width: '100%',
+                height: '100%',
+              }}
             >
               <Box
                 sx={{
-                  position: 'relative',
-                  height: '500px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  width: { xs: '400px', md: '600px' },
+                  height: { xs: '400px', md: '600px' },
+                  opacity: 0.3,
                 }}
               >
                 {/* Central hexagon */}
                 <Box
                   className="cyber-glow"
                   sx={{
-                    width: '300px',
-                    height: '300px',
+                    width: '100%',
+                    height: '100%',
                     position: 'relative',
                     '&::before': {
                       content: '""',
@@ -267,8 +345,8 @@ const Hero = () => {
                       top: '50%',
                       left: '50%',
                       transform: 'translate(-50%, -50%)',
-                      width: '320px',
-                      height: '320px',
+                      width: '100%',
+                      height: '100%',
                       border: '2px solid',
                       borderImage: 'linear-gradient(45deg, #FF2A6D, #B026FF, #05D9E8) 1',
                       clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
@@ -292,8 +370,8 @@ const Hero = () => {
                       position: 'absolute',
                       top: '50%',
                       left: '50%',
-                      width: '400px',
-                      height: '400px',
+                      width: '100%',
+                      height: '100%',
                       transform: 'translate(-50%, -50%)',
                     }}
                   >
@@ -302,12 +380,13 @@ const Hero = () => {
                         position: 'absolute',
                         top: '50%',
                         left: '50%',
-                        width: '20px',
-                        height: '20px',
-                        transform: `translate(-50%, -50%) rotate(${index * 120}deg) translateX(200px)`,
+                        width: '30px',
+                        height: '30px',
+                        transform: `translate(-50%, -50%) rotate(${index * 120}deg) translateX(${index === 0 ? '250px' : '300px'})`,
                         background: `linear-gradient(45deg, ${index === 0 ? '#FF2A6D' : index === 1 ? '#B026FF' : '#05D9E8'}, transparent)`,
                         borderRadius: '50%',
-                        boxShadow: `0 0 20px ${index === 0 ? '#FF2A6D' : index === 1 ? '#B026FF' : '#05D9E8'}`,
+                        boxShadow: `0 0 30px ${index === 0 ? '#FF2A6D' : index === 1 ? '#B026FF' : '#05D9E8'}`,
+                        opacity: 0.5,
                       }}
                     />
                   </motion.div>
@@ -344,6 +423,9 @@ const Hero = () => {
               cursor: 'pointer',
               p: 2,
               borderRadius: 2,
+              background: 'rgba(255, 255, 255, 0.05)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
             }}
           >
             <Typography
