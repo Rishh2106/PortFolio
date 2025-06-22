@@ -6,28 +6,25 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 
 const projects = [
   {
-    title: 'Portfolio Website',
-    description: 'A modern, responsive portfolio website built with React, Material-UI, and Framer Motion. Features smooth animations, dark mode, and a clean design.',
-    technologies: ['React', 'Material-UI', 'Framer Motion', 'Vite'],
-    github: 'https://github.com/Rishh2106/portfolio',
-    live: 'https://your-portfolio-url.com',
-    image: '/portfolio-preview.png',
+    title: 'DigitalStudyHelper',
+    description: 'A digital study helper tool for students and teachers.',
+    technologies: ['Java', 'JavaScript', 'CSS', 'HTML'],
+    github: 'https://github.com/Rishh2106/DigitalStudyHelper',
+    image: '/digitalstudyhelper-preview.png',
   },
   {
-    title: 'E-Commerce Platform',
-    description: 'A full-stack e-commerce platform with user authentication, product management, and payment integration.',
-    technologies: ['React', 'Spring Boot', 'MySQL', 'Stripe'],
-    github: 'https://github.com/Rishh2106/ecommerce',
-    live: 'https://your-ecommerce-url.com',
-    image: '/ecommerce-preview.png',
+    title: 'Zoomify',
+    description: 'A conference call implementation using WebRTC, Socket.io, and Node.js.',
+    technologies: ['JavaScript', 'HTML', 'CSS', 'Dockerfile'],
+    github: 'https://github.com/Rishh2106/VideoCall',
+    image: '/zoomify-preview.png',
   },
   {
-    title: 'Task Management App',
-    description: 'A collaborative task management application with real-time updates, team features, and progress tracking.',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Socket.io'],
-    github: 'https://github.com/Rishh2106/task-manager',
-    live: 'https://your-taskmanager-url.com',
-    image: '/taskmanager-preview.png',
+    title: 'EMS',
+    description: 'A modern Employee Management System (EMS) with Vite, React, Tailwind CSS, Spring Boot, and MySQL.',
+    technologies: ['JavaScript', 'Java', 'MySQL', 'React', 'Spring Boot'],
+    github: 'https://github.com/Rishh2106/Employee-management-system',
+    image: '/ems-preview.png',
   },
 ];
 
@@ -149,20 +146,6 @@ const Projects = () => {
                         >
                           <GitHubIcon />
                         </IconButton>
-                        <IconButton
-                          color="primary"
-                          href={project.live}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          sx={{
-                            backgroundColor: 'rgba(100, 255, 218, 0.1)',
-                            '&:hover': {
-                              backgroundColor: 'rgba(100, 255, 218, 0.2)',
-                            },
-                          }}
-                        >
-                          <LaunchIcon />
-                        </IconButton>
                       </Box>
                       <Typography variant="body1" color="primary">
                         Project Preview Image
@@ -208,42 +191,6 @@ const Projects = () => {
                           {tech}
                         </Typography>
                       ))}
-                    </Box>
-                    <Box sx={{ display: 'flex', gap: 2 }}>
-                      <Button
-                        variant="outlined"
-                        color="primary"
-                        startIcon={<GitHubIcon />}
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        sx={{
-                          borderRadius: '4px',
-                          textTransform: 'none',
-                          '&:hover': {
-                            backgroundColor: 'rgba(100, 255, 218, 0.1)',
-                          },
-                        }}
-                      >
-                        GitHub
-                      </Button>
-                      <Button
-                        variant="outlined"
-                        color="primary"
-                        startIcon={<LaunchIcon />}
-                        href={project.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        sx={{
-                          borderRadius: '4px',
-                          textTransform: 'none',
-                          '&:hover': {
-                            backgroundColor: 'rgba(100, 255, 218, 0.1)',
-                          },
-                        }}
-                      >
-                        Live Demo
-                      </Button>
                     </Box>
                   </Paper>
                 </motion.div>

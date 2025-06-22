@@ -17,6 +17,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
 import SendIcon from '@mui/icons-material/Send';
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -39,14 +40,33 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically handle the form submission
-    // For now, we'll just show a success message
-    setSnackbar({
-      open: true,
-      message: 'Message sent successfully!',
-      severity: 'success',
-    });
-    setFormData({ name: '', email: '', message: '' });
+    emailjs.send(
+      'service_tuzkrut',
+      'template_lih8suh',
+      {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+      },
+      'WIDgPZCIPkQS5SYDf'
+    )
+      .then(
+        (result) => {
+          setSnackbar({
+            open: true,
+            message: 'Message sent successfully!',
+            severity: 'success',
+          });
+          setFormData({ name: '', email: '', message: '' });
+        },
+        (error) => {
+          setSnackbar({
+            open: true,
+            message: 'Failed to send message. Please try again later.',
+            severity: 'error',
+          });
+        }
+      );
   };
 
   const handleCloseSnackbar = () => {
