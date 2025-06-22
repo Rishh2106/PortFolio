@@ -27,12 +27,12 @@ const Footer = () => {
           }}
         >
           <Typography variant="body2" color="text.secondary">
-            © {currentYear} Rishi. All rights reserved.
+            © {currentYear} Rishikesh Jain. All rights reserved.
           </Typography>
           <Box sx={{ display: 'flex', gap: 1 }}>
             <IconButton
               color="primary"
-              href="https://github.com/yourusername"
+              href="https://github.com/Rishh2106"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub"
@@ -41,7 +41,7 @@ const Footer = () => {
             </IconButton>
             <IconButton
               color="primary"
-              href="https://linkedin.com/in/yourusername"
+              href="https://linkedin.com/in/rishh2106"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
@@ -50,7 +50,7 @@ const Footer = () => {
             </IconButton>
             <IconButton
               color="primary"
-              href="mailto:your.email@example.com"
+              href="mailto:officialrishijain@gmail.com"
               aria-label="Email"
             >
               <EmailIcon />

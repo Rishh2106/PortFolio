@@ -15,6 +15,7 @@ import { motion } from 'framer-motion';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
+import PhoneIcon from '@mui/icons-material/Phone';
 import SendIcon from '@mui/icons-material/Send';
 
 const Contact = () => {
@@ -243,10 +244,39 @@ const Contact = () => {
                     always open to discussing new projects, creative ideas, or
                     opportunities to be part of your vision.
                   </Typography>
+                  
+                  <Box sx={{ mb: 3 }}>
+                    <Typography
+                      variant="body1"
+                      sx={{ 
+                        color: 'text.secondary', 
+                        mb: 1,
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 1
+                      }}
+                    >
+                      <EmailIcon sx={{ fontSize: 20, color: 'primary.main' }} />
+                      officialrishijain@gmail.com
+                    </Typography>
+                    <Typography
+                      variant="body1"
+                      sx={{ 
+                        color: 'text.secondary',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 1
+                      }}
+                    >
+                      <PhoneIcon sx={{ fontSize: 20, color: 'primary.main' }} />
+                      +91 9039325374
+                    </Typography>
+                  </Box>
+                  
                   <Box sx={{ display: 'flex', gap: 2, mt: 4 }}>
                     <IconButton
                       color="primary"
-                      href="https://github.com/yourusername"
+                      href="https://github.com/Rishh2106"
                       target="_blank"
                       rel="noopener noreferrer"
                       sx={{
@@ -262,7 +292,7 @@ const Contact = () => {
                     </IconButton>
                     <IconButton
                       color="primary"
-                      href="https://linkedin.com/in/yourusername"
+                      href="https://linkedin.com/in/rishh2106"
                       target="_blank"
                       rel="noopener noreferrer"
                       sx={{
@@ -278,7 +308,7 @@ const Contact = () => {
                     </IconButton>
                     <IconButton
                       color="primary"
-                      href="mailto:your.email@example.com"
+                      href="mailto:officialrishijain@gmail.com"
                       sx={{
                         backgroundColor: 'rgba(100, 255, 218, 0.1)',
                         '&:hover': {
@@ -289,6 +319,20 @@ const Contact = () => {
                       }}
                     >
                       <EmailIcon />
+                    </IconButton>
+                    <IconButton
+                      color="primary"
+                      href="tel:+919039325374"
+                      sx={{
+                        backgroundColor: 'rgba(100, 255, 218, 0.1)',
+                        '&:hover': {
+                          backgroundColor: 'rgba(100, 255, 218, 0.2)',
+                          transform: 'translateY(-3px)',
+                        },
+                        transition: 'all 0.3s ease-in-out',
+                      }}
+                    >
+                      <PhoneIcon />
                     </IconButton>
                   </Box>
                 </Paper>

@@ -1,7 +1,6 @@
 import { Box, Typography, Container, Button, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
 import Typewriter from 'typewriter-effect';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { Link } from 'react-scroll';
 
 const Hero = () => {
@@ -169,7 +168,7 @@ const Hero = () => {
                   },
                 }}
               >
-                Rishi.
+                Rishikesh Jain.
               </Typography>
 
               <Box
@@ -395,69 +394,6 @@ const Hero = () => {
             </motion.div>
           </Grid>
         </Grid>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.8 }}
-          style={{
-            position: 'absolute',
-            bottom: '40px',
-            left: '50%',
-            transform: 'translateX(-50%)',
-          }}
-        >
-          <Box
-            component={Link}
-            to="about"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={500}
-            className="cyber-glow"
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              cursor: 'pointer',
-              p: 2,
-              borderRadius: 2,
-              background: 'rgba(255, 255, 255, 0.05)',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-            }}
-          >
-            <Typography
-              variant="body2"
-              className="text-neon-pink"
-              sx={{
-                mb: 1,
-                fontSize: '1.1rem',
-                fontWeight: 500,
-              }}
-            >
-              Scroll Down
-            </Typography>
-            <motion.div
-              animate={{
-                y: [0, 10, 0],
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                repeatType: 'reverse',
-              }}
-            >
-              <KeyboardArrowDownIcon
-                sx={{
-                  color: 'neon.pink',
-                  fontSize: '2rem',
-                }}
-              />
-            </motion.div>
-          </Box>
-        </motion.div>
       </Container>
     </Box>
   );
