@@ -69,9 +69,9 @@ const Projects = () => {
           >
             Featured Projects
           </Typography>
-          <Grid container spacing={4}>
+          <Grid container spacing={4} justifyContent="center">
             {projects.map((project, index) => (
-              <Grid item xs={12} md={6} key={index}>
+              <Grid item xs={12} key={index}>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -82,12 +82,18 @@ const Projects = () => {
                     elevation={3}
                     sx={{
                       p: 3,
-                      height: '100%',
+                      width: '80vw',
+                      height: 420,
+                      mx: 'auto',
                       backgroundColor: 'background.paper',
                       borderRadius: 2,
                       transition: 'all 0.3s ease-in-out',
                       position: 'relative',
                       overflow: 'hidden',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
                       '&:hover': {
                         transform: 'translateY(-5px)',
                         boxShadow: '0 8px 30px rgba(0, 0, 0, 0.2)',
@@ -113,8 +119,16 @@ const Projects = () => {
                         justifyContent: 'center',
                         overflow: 'hidden',
                         transition: 'transform 0.3s ease-in-out',
+                        position: 'relative',
                       }}
                     >
+                      <Typography
+                        variant="h6"
+                        color="text.secondary"
+                        sx={{ textAlign: 'center', width: '100%', zIndex: 1, pointerEvents: 'none' }}
+                      >
+                        Click here for the GitHub
+                      </Typography>
                       <Box
                         className="project-overlay"
                         sx={{
@@ -130,6 +144,8 @@ const Projects = () => {
                           gap: 2,
                           opacity: 0,
                           transition: 'opacity 0.3s ease-in-out',
+                          zIndex: 2,
+                          pointerEvents: 'auto',
                         }}
                       >
                         <IconButton
@@ -147,9 +163,6 @@ const Projects = () => {
                           <GitHubIcon />
                         </IconButton>
                       </Box>
-                      <Typography variant="body1" color="primary">
-                        Project Preview Image
-                      </Typography>
                     </Box>
                     <Typography
                       variant="h5"
@@ -159,6 +172,8 @@ const Projects = () => {
                         background: 'linear-gradient(45deg, #64ffda 30%, #4cc9b7 90%)',
                         WebkitBackgroundClip: 'text',
                         WebkitTextFillColor: 'transparent',
+                        textAlign: 'left',
+                        width: '100%',
                       }}
                     >
                       {project.title}
@@ -166,7 +181,7 @@ const Projects = () => {
                     <Typography
                       variant="body1"
                       paragraph
-                      sx={{ color: 'text.secondary', lineHeight: 1.8 }}
+                      sx={{ color: 'text.secondary', lineHeight: 1.8, textAlign: 'left', width: '100%' }}
                     >
                       {project.description}
                     </Typography>
