@@ -44,7 +44,7 @@ const Navbar = () => {
               letterSpacing: '0.05em',
             }}
           >
-            RISHIKESH JAIN
+            PORTFOLIO
           </Box>
           <Box sx={{ display: 'flex', gap: 2 }}>
             {['about', 'skills', 'projects', 'contact'].map((item) => (
